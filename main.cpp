@@ -5,11 +5,15 @@
 
 #include <iostream>
 
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
+const unsigned int SCR_WIDTH = 1200;
+const unsigned int SCR_HEIGHT = 800;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
+
+static void cursorPositionCallback(GLFWwindow* window, double xPos, double yPos);
+void mouse_button_callback(GLFWwindow* window, int button, int action);
+void mouse_button_callback(GLFWwindow* window);
 
 int main()
 {
@@ -28,6 +32,10 @@ int main()
 
 	// When user resizes the screen
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
+	//Mouse cursor callback
+	glfwSetCursorPosCallback(window, cursorPositionCallback);
+	//glfwSetMouseButtonCallback(window, mouse_button_callback);
 
 	// glad: load all OpenGL function pointers
 	// ---------------------------------------
@@ -55,9 +63,11 @@ int main()
 	{
 		// input
 		processInput(window);
+		mouse_button_callback(window);
 
 		txt.RenderText(shader, "This is sample text", 25.0f, 25.0f, 1.0f, glm::vec3(0.5, 0.8f, 0.2f));
 		txt.RenderText(shader, "(C) LearnOpenGL.com", 540.0f, 570.0f, 0.5f, glm::vec3(0.3, 0.7f, 0.9f));
+		txt.RenderText(shader, "5 X 5 = ", 550.0f, 400.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
@@ -77,4 +87,18 @@ void processInput(GLFWwindow* window)
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
 		glfwSetWindowShouldClose(window, true);
 	}
+}
+
+void mouse_button_callback(GLFWwindow* window)
+{
+	if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS) {
+		//glfwSetWindowShouldClose(window, true);
+		cout << "I was pressed" << endl;
+	}
+}
+
+static void cursorPositionCallback(GLFWwindow* window, double xPos, double yPos)
+{
+	std::cout << xPos << " : " << yPos << std::endl;
+	
 }
