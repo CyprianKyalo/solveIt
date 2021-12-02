@@ -1,2 +1,4 @@
 ﻿  main.cpp
+  The contents of <filesystem> are available only with C++17 or later.
+C:\OpenGLRoot\solveIt\shader.h(56,29): warning C4101: 'e': unreferenced local variable
   solveIt.vcxproj -> C:\OpenGLRoot\solveIt\x64\Debug\solveIt.exe
