@@ -3,4 +3,5 @@
 C:\OpenGLRoot\solveIt\shader.h(56,29): warning C4101: 'e': unreferenced local variable
 C:\OpenGLRoot\solveIt\equation.h(28,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 C:\OpenGLRoot\solveIt\equation.h(72,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\OpenGLRoot\solveIt\main.cpp(166,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   solveIt.vcxproj -> C:\OpenGLRoot\solveIt\x64\Debug\solveIt.exe

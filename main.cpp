@@ -6,6 +6,7 @@
 
 #include <stdlib.h>
 #include <time.h>
+#include <map>	
 
 #include <iostream>
 
@@ -120,7 +121,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 {
 	if (key == GLFW_KEY_G && action == GLFW_PRESS)
 	{
-		display(window);
+		//display(window);
 	}
 }
 
@@ -139,8 +140,9 @@ void display(GLFWwindow* window) {
 	// FreeType
 	TextRenderer txt("Fonts/Antonio-Bold.ttf");
 
-	int eqns[10];
-	string q, v, answer1, answer2, answer;
+	map<int, string> randAnswers;
+	int eqns[10], random;
+	string q, v, answer1, answer2, answer, answer3;
 	string op1, op2 = "";
 	Equation eqn;
 
@@ -158,15 +160,49 @@ void display(GLFWwindow* window) {
 		answer += to_string(ans);
 		answer1 += to_string(ans + 22);
 		answer2 += to_string(ans + 34);
+		answer3 += to_string(ans + 12);
+		
+		// This piece of code randomizes the answers
+		srand(time(0));
+		random = rand() % 4;
+		if (random == 0)
+		{
+			randAnswers[0] = answer;
+			randAnswers[1] = answer2;
+			randAnswers[2] = answer1;
+			randAnswers[3] = answer3;
+
+		}
+		else if (random == 1)
+		{
+			randAnswers[0] = answer2;
+			randAnswers[1] = answer;
+			randAnswers[2] = answer3;
+			randAnswers[3] = answer1;
+		}
+		else if (random == 2)
+		{
+			randAnswers[0] = answer2;
+			randAnswers[1] = answer3;
+			randAnswers[2] = answer;
+			randAnswers[3] = answer1;
+		}
+		else if (random == 3)
+		{
+			randAnswers[0] = answer2;
+			randAnswers[1] = answer3;
+			randAnswers[2] = answer1;
+			randAnswers[3] = answer;
+		}
 
 		txt.RenderText(shader, op1, 50.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 		txt.RenderText(shader, "+", 100.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 		txt.RenderText(shader, op2, 130.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 
-		txt.RenderText(shader, answer, 130.0f, 500.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
-		txt.RenderText(shader, answer1, 130.0f, 400.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
-		txt.RenderText(shader, answer2, 130.0f, 300.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
-		txt.RenderText(shader, answer2, 130.0f, 200.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		txt.RenderText(shader, randAnswers[0], 130.0f, 500.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		txt.RenderText(shader, randAnswers[1], 130.0f, 400.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		txt.RenderText(shader, randAnswers[2], 130.0f, 300.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		txt.RenderText(shader, randAnswers[3], 130.0f, 200.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 		break;
 	}
 }
