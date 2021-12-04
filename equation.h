@@ -22,6 +22,7 @@ public:
 		operand2 = 0;
 	}
 	
+	// This function is a test - not being called in main
 	string randomize(int arr[], string sign=nullptr) {
 
 		srand(time(0));
@@ -66,6 +67,7 @@ public:
 	
 	}
 
+	// Function that generates random equations
 	void generate_rand_nums(int eqns[]) {
 		srand(time(0));
 		for (unsigned int i = 0; i < 10; i++)
@@ -76,6 +78,7 @@ public:
 		}
 	}
 
+	// This fxn is a test - not being called in main
 	void answer(int eqns[]) {
 		this->generate_rand_nums(eqns);
 		for (unsigned int i = 0; i < 10; i += 2)
