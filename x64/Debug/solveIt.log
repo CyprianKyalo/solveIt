@@ -1,4 +1,7 @@
 ﻿  main.cpp
   The contents of <filesystem> are available only with C++17 or later.
 C:\OpenGLRoot\solveIt\shader.h(56,29): warning C4101: 'e': unreferenced local variable
+C:\OpenGLRoot\solveIt\equation.h(29,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\OpenGLRoot\solveIt\equation.h(74,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\OpenGLRoot\solveIt\main.cpp(389,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   solveIt.vcxproj -> C:\OpenGLRoot\solveIt\x64\Debug\solveIt.exe
