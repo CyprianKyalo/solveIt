@@ -21,6 +21,8 @@
 
 using namespace std;
 
+int j = 0;
+
 const unsigned int SCR_WIDTH = 1200;
 const unsigned int SCR_HEIGHT = 800;
 
@@ -139,7 +141,7 @@ string p1, p2 = "";
 /*Level 1*/
 void addition_quiz()
 {
-	for (int i = 1; i <= 5; i++)
+	for (int i = 1; i <= 1; i++)
 	{
 		if (i <= 5) {
 			cout << "\n LEVEL 1: Addition Quiz (YOU ONLY HAVE 30 SECONDS TO SOLVE EACH QUESTION) \n\n";
@@ -152,7 +154,7 @@ void addition_quiz()
 			//timer(h, m, s);
 			//for (int i = 100; ; i = i + 50)
 				//Beep(i, 1000);
-			for (int i = 1; i <= 30; i++)
+			for (int i = 1; i <= 5; i++)
 			{
 				srand(time(0));
 				int A = rand() % 10 + 1 + 10 * (i - 1);
@@ -172,7 +174,8 @@ void addition_quiz()
 				if (j == 1)
 				{
 					cout << "Time's up";
-					j = 2;
+					exit(0);
+					//j = 2;
 				}
 				else
 				{
@@ -180,16 +183,21 @@ void addition_quiz()
 					if ((time(0) - start) > 30)
 					{
 						cout << "Time's up";
+						exit(0);
 						j = 2;
 					}
 					else if (numInput == A + B) {
 						cout << "Correct Answer\n";
 						score = score + 10;
-						cout << "Score : " << score;
+						cout << "Score : " << score << endl;;
 					}
 					else {
-						cout << "Wrong Answer \n Try Again! ";
-						j = 2;
+						cout << "Wrong Answer\n";
+						score = score - 10;
+						if (score < 0)
+							score = 0;
+						cout << "Score : " << score << endl;
+						
 					}
 
 				}
@@ -197,24 +205,9 @@ void addition_quiz()
 				{
 					Beep(2000, 100);Beep(1500, 100);Beep(2000, 100);Beep(1500, 100);Beep(2000, 700);Beep(0, 400);
 				}
-
-
-
-
-
-
-
-
-
-
-
+				if (i == 5)
+					break;
 			}
-
-
-
-
-
-
 		}
 
 	}
@@ -240,12 +233,12 @@ void addition_quiz()
 
 void subtraction_quiz()
 {
-	for (int i = 1; i <= 5; i++)
+	for (int i = 1; i <= 1; i++)
 	{
 		if (i <= 5) {
 			cout << "\n\n LEVEL 2: Subtraction Quiz (YOU ONLY HAVE 30 SECONDS TO SOLVE  EACH QUESTION)\n\n";
 			Beep(0, 4000);
-			for (int i = 1; i <= 30; i++)
+			for (int i = 1; i <= 5; i++)
 			{
 				srand(time(0));
 				int C, D;
@@ -276,7 +269,8 @@ void subtraction_quiz()
 				if (j == 1)
 				{
 					cout << "Time's Up!!";
-					j = 2;
+					exit(0);
+					//j = 2;
 				}
 				else
 				{
@@ -284,28 +278,31 @@ void subtraction_quiz()
 					if ((time(0) - start) > 30)
 					{
 						cout << "Time's Up!!";
-						j = 2;
+						exit(0);
+						//j = 2;
 					}
 					else if (numInput == D - C) {
 						cout << "Correct Answer\n ";
 						score = score + 10;
-						cout << "Score : " << score;
+						cout << "Score : " << score << endl;
 					}
 					else {
-						cout << "Wrong Answer\n  Try Again!";
-						j = 2;
+						cout << "Wrong Answer\n";
+						score = score - 10;
+						if (score < 0)
+							score = 0;
+						cout << "Score : " << score << endl;
 					}
-
 
 				}
 				if (j == 2) break;
 				{
 					Beep(2000, 100);Beep(1500, 100);Beep(2000, 100);Beep(1500, 100);Beep(2000, 700);Beep(0, 400);
 				}
-
-
-
-
+				if (i == 5)
+				{
+					break;
+				}
 			}
 		}
 	}
@@ -333,12 +330,12 @@ void multiplication_quiz()
 	int j = 0;
 	for (int Y = 1; j != 2 && Y != 2; Y++)
 	{
-		for (int i = 1; i <= 5; i++)
+		for (int i = 1; i <= 1; i++)
 		{
 			if (i <= 5) {
 				cout << "\n\n LEVEL 3 : Multiplication Quiz (YOU ONLY HAVE 30 SECONDS TO SOLVE  EACH QUESTION)\n\n";
 				Beep(0, 4000);
-				for (int i = 1; i <= 30; i++)
+				for (int i = 1; i <= 5; i++)
 				{
 					srand(time(0));
 					int A = rand() % (5 * i) + 1;
@@ -358,7 +355,8 @@ void multiplication_quiz()
 					if (j == 1)
 					{
 						cout << "Time's Up!!";
-						j = 2;
+						exit(0);
+						//j = 2;
 					}
 					else
 					{
@@ -366,7 +364,8 @@ void multiplication_quiz()
 						if ((time(0) - start) > 30)
 						{
 							cout << "Time's Up!!";
-							j = 2;
+							exit(0);
+							//j = 2;
 						}
 						else  if (numInput == A * B) {
 							cout << "Correct Answer\n ";
@@ -374,25 +373,25 @@ void multiplication_quiz()
 							cout << "Score : " << score;
 						}
 						else {
-							cout << "Wrong Answer\n Try Again!";
-							j = 2;
+							cout << "Wrong Answer\n";
+							score = score - 10;
+							if (score < 0)
+								score = 0;
+							cout << "Score : " << score << endl;
 						}
 					}
 					if (j == 2) break;
 					{
 						Beep(2000, 100);Beep(1500, 100);Beep(2000, 100);Beep(1500, 100);Beep(2000, 700);Beep(0, 400);
 					}
-
+					if (i == 5)
+					{
+						break;
+					}
 				}
-
-
-
 			}
 		}
 	}
-
-
-
 
 	Shader shader("Shaders/glyph.vs", "Shaders/glyph.fs");
 	glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(SCR_WIDTH), 0.0f, static_cast<float>(SCR_HEIGHT));
@@ -417,7 +416,7 @@ void division_quiz()
 	int j = 0;
 	for (int Y = 1; j != 2 && Y != 2; Y++)
 	{
-		for (int i = 1; i <= 5; i++)
+		for (int i = 1; i <= 1; i++)
 		{
 			if (i <= 5) {
 				cout << "\n\n LEVEL 4:Division Quiz\n\n";
@@ -440,7 +439,8 @@ void division_quiz()
 				if (j == 1)
 				{
 					cout << "Time's Up!!";
-					j = 2;
+					exit(0);
+					//j = 2;
 				}
 				else
 				{
@@ -448,7 +448,8 @@ void division_quiz()
 					if ((time(0) - start) > 30)
 					{
 						cout << "Time's Up!!";
-						j = 2;
+						exit(0);
+						//j = 2;
 					}
 					else if (numInput == A / B) {
 						cout << "Correct Answer\n";
@@ -456,8 +457,11 @@ void division_quiz()
 						cout << "Score : " << score;
 					}
 					else {
-						cout << "Wrong Answer\n  Try Again!";
-						j = 2;
+						cout << "Wrong Answer\n";
+						score = score - 10;
+						if (score < 0)
+							score = 0;
+						cout << "Score : " << score << endl;
 					}
 
 
@@ -466,8 +470,8 @@ void division_quiz()
 				{
 					Beep(2000, 100);Beep(1500, 100);Beep(2000, 100);Beep(1500, 100);Beep(2000, 700);Beep(0, 400);
 				}
-
-
+				if (i == 5)
+					break;
 			}
 
 		}
