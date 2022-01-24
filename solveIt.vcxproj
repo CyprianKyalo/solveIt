@@ -155,6 +155,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="equation.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="textrenderer.h" />
   </ItemGroup>

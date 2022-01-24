@@ -29,5 +29,8 @@
     <ClInclude Include="textrenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="equation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

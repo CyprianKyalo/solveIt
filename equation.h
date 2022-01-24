@@ -21,13 +21,13 @@ public:
 		operand1 = 0;
 		operand2 = 0;
 	}
-
+	
 	// This function is a test - not being called in main
-	string randomize(int arr[], string sign = nullptr) {
+	string randomize(int arr[], string sign=nullptr) {
 
 		srand(time(0));
-		operand1 = rand() % 100 + 1;
-		operand2 = rand() % 100 + 1;
+		operand1 = rand() % 100+1;
+		operand2 = rand() % 100+1;
 
 		for (unsigned i = 0; i < 10; i++)
 		{
@@ -42,12 +42,12 @@ public:
 			if (operand1 >= operand2) {
 				arr[0] = operand1;
 				arr[1] = operand2;
-				arr[2] = operand1 - operand2;
+				arr[2] =  operand1 - operand2;
 			}
 			else {
 				arr[0] = operand2;;
 				arr[1] = operand1;
-				arr[2] = operand2 - operand1;
+				arr[2] = operand2-operand1;
 			}
 		}
 		else if (sign == "+")
@@ -64,7 +64,7 @@ public:
 		s += "=";
 
 		return s;
-
+	
 	}
 
 	// Function that generates random equations
@@ -91,4 +91,5 @@ public:
 
 
 #endif // !EQUATION_H
+
 
