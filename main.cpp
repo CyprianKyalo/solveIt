@@ -3,7 +3,7 @@
 
 #include "textrenderer.h"
 #include "equation.h"
-#include "Addition.h"
+// #include "Addition.h"
 
 #include <stdlib.h>
 #include <time.h>
