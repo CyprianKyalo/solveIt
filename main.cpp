@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <map>	
+#include <cmath>
 
 #include <iostream>
 
@@ -32,6 +33,12 @@ void addition_quiz();
 void subtraction_quiz();
 void multiplication_quiz();
 void division_quiz();
+void square_quiz();
+void cube_quiz();
+void cuberoot_quiz();
+void squareroot_quiz();
+
+
 
 
 
@@ -92,6 +99,15 @@ int main()
 		subtraction_quiz();
 		multiplication_quiz();
 		division_quiz();
+		square_quiz();
+		cube_quiz();
+		cuberoot_quiz();
+		squareroot_quiz();
+
+	
+
+
+
 		
 		glfwSwapBuffers(window);
 		glfwPollEvents();
@@ -271,6 +287,8 @@ void multiplication_quiz()
 	txt.RenderText(shader, "+", 130.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 	txt.RenderText(shader, p2, 150.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 }
+
+
 /*LEVEL 4*/
 void division_quiz()
 {
@@ -313,11 +331,182 @@ void division_quiz()
 	p += p1;
 	p += "/";
 	p += p2;
-	txt.RenderText(shader, "Level 4 : Divisoon Quiz", 50.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+	txt.RenderText(shader, "Level 4 : Division Quiz", 50.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 	txt.RenderText(shader, p1, 100.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 	txt.RenderText(shader, "+", 130.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 	txt.RenderText(shader, p2, 150.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 }
+/*Level 5*/
+void square_quiz()
+{
+	for (int i = 1; i <= 5; i++)
+	{
+		if (i <= 5) {
+			cout << "\n LEVEL 5: Square Quiz \n\n";
+			int A = rand() % 10 + 1 + 10 * (i - 1);
+			cout << "Question " << i << " : " << A << " * " << A << " = \n";
+			int numInput;
+			cin >> numInput;
+
+			if (numInput == A * A) {
+				cout << "Correct Answer\n";
+				score = score + 10;
+				cout << "Score : " << score;
+			}
+			else {
+				cout << "Wrong Answer \n Try Again! ";
+				exit(0);
+			}
+		}
+		else {
+			break;
+		}
+	}
+	Shader shader("Shaders/glyph.vs", "Shaders/glyph.fs");
+	glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(SCR_WIDTH), 0.0f, static_cast<float>(SCR_HEIGHT));
+	shader.use();
+	glUniformMatrix4fv(glGetUniformLocation(shader.ID, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+	// FreeType
+	TextRenderer txt("Fonts/Antonio-Bold.ttf");
+
+	p1 = to_string(A);
+	p += p1;
+	p += "*";
+	txt.RenderText(shader, "Level 5 : Square Quiz", 50.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+	txt.RenderText(shader, p1, 100.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+	txt.RenderText(shader, "+", 130.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+	txt.RenderText(shader, p2, 150.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+
+}
+/*Level 6*/
+void cube_quiz()
+{
+	for (int i = 1; i <= 5; i++)
+	{
+		if (i <= 5) {
+			cout << "\n LEVEL 6: Cube Quiz \n\n";
+			int A = rand() % 10 + 1 + 10 * (i - 1);
+			cout << "Question " << i << " : " << A << " * " << A << " * " << A << " = \n";
+			int numInput;
+			cin >> numInput;
+
+			if (numInput == A * A * A) {
+				cout << "Correct Answer\n";
+				score = score + 10;
+				cout << "Score : " << score;
+			}
+			else {
+				cout << "Wrong Answer \n Try Again! ";
+				exit(0);
+			}
+		}
+		else {
+			break;
+		}
+	}
+	Shader shader("Shaders/glyph.vs", "Shaders/glyph.fs");
+	glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(SCR_WIDTH), 0.0f, static_cast<float>(SCR_HEIGHT));
+	shader.use();
+	glUniformMatrix4fv(glGetUniformLocation(shader.ID, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+	// FreeType
+	TextRenderer txt("Fonts/Antonio-Bold.ttf");
+
+	p1 = to_string(A);
+	p += p1;
+	p += "*";
+	txt.RenderText(shader, "Level 6 : Cube Quiz", 50.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+	txt.RenderText(shader, p1, 100.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+	txt.RenderText(shader, "+", 130.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+	txt.RenderText(shader, p2, 150.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+
+}
+/*Level 7*/
+void cuberoot_quiz()
+{
+
+	for (int i = 1; i <= 5; i++)
+	{
+		if (i <= 5) {
+			cout << "\n LEVEL 7: Cuberoot Quiz \n\n";
+			int A = rand() % 10 + 1 + 10 * (i - 1);
+
+			cout << "Question " << i << " : " << " Cuberoot of " << A << " = \n";
+			int numInput;
+			cin >> numInput;
+
+			if (numInput == cbrt(A)) {
+				cout << "Correct Answer\n";
+				score = score + 10;
+				cout << "Score : " << score;
+			}
+			else {
+				cout << "Wrong Answer \n Try Again! ";
+				exit(0);
+			}
+		}
+		else {
+			break;
+		}
+	}
+	Shader shader("Shaders/glyph.vs", "Shaders/glyph.fs");
+	glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(SCR_WIDTH), 0.0f, static_cast<float>(SCR_HEIGHT));
+	shader.use();
+	glUniformMatrix4fv(glGetUniformLocation(shader.ID, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+	// FreeType
+	TextRenderer txt("Fonts/Antonio-Bold.ttf");
+
+	p1 = to_string(A);
+	p += p1;
+	txt.RenderText(shader, "Level 7 : Cuberoot Quiz", 50.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+	txt.RenderText(shader, p1, 100.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+	txt.RenderText(shader, "+", 130.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+	txt.RenderText(shader, p2, 150.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+
+}
+/*Level 8*/
+void squareroot_quiz()
+{
+
+	for (int i = 1; i <= 5; i++)
+	{
+		if (i <= 5) {
+			cout << "\n LEVEL 8: Squareroot Quiz \n\n";
+			int A = rand() % 10 + 1 + 10 * (i - 1);
+
+			cout << "Question " << i << " : " << " Squareroot of " << A << " = \n";
+			int numInput;
+			cin >> numInput;
+
+			if (numInput == sqrt(A)) {
+				cout << "Correct Answer\n";
+				score = score + 10;
+				cout << "Score : " << score;
+			}
+			else {
+				cout << "Wrong Answer \n Try Again! ";
+				exit(0);
+			}
+		}
+		else {
+			break;
+		}
+	}
+	Shader shader("Shaders/glyph.vs", "Shaders/glyph.fs");
+	glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(SCR_WIDTH), 0.0f, static_cast<float>(SCR_HEIGHT));
+	shader.use();
+	glUniformMatrix4fv(glGetUniformLocation(shader.ID, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+	// FreeType
+	TextRenderer txt("Fonts/Antonio-Bold.ttf");
+
+	p1 = to_string(A);
+	p += p1;
+	txt.RenderText(shader, "Level 8 : Squareroot Quiz", 50.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+	txt.RenderText(shader, p1, 100.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+	txt.RenderText(shader, "+", 130.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+	txt.RenderText(shader, p2, 150.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+
+}
+
 
 	//else if (glfwGetKey(window, GLFW_KEY_T) == GLFW_PRESS) {
 	//	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
