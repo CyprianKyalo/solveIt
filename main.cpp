@@ -3,7 +3,7 @@
 
 #include "textrenderer.h"
 #include "equation.h"
-// #include "Addition.h"
+#include "addition.h"
 
 #include <stdlib.h>
 #include <time.h>
@@ -88,7 +88,7 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 			cout << "Score is " << score_value << endl;
 		}
 		else {
-			cout << "Wrong nswer" << endl;
+			cout << "Wrong answer" << endl;
 			score_value = score_value - 10;
 			cout << "Score is " << score_value << endl;
 			//exit(0);
@@ -770,6 +770,8 @@ void display(GLFWwindow* window) {
 }
 
 void display_sub(GLFWwindow* window) {
+	glfwSwapInterval(250);
+
 	Shader shader("Shaders/glyph.vs", "Shaders/glyph.fs");
 	glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(SCR_WIDTH), 0.0f, static_cast<float>(SCR_HEIGHT));
 	shader.use();
@@ -777,8 +779,6 @@ void display_sub(GLFWwindow* window) {
 
 	// FreeType
 	TextRenderer txt("Fonts/Antonio-Bold.ttf");
-
-	glfwSwapInterval(250);
 
 	map<int, string> randAnswers;
 	int eqns[10], random;
@@ -837,6 +837,8 @@ void display_sub(GLFWwindow* window) {
 			randAnswers[3] = answer;
 		}
 
+		cout << "The answer is in position " << key << endl;
+
 		txt.RenderText(shader, op1, 480.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 		txt.RenderText(shader, "-", 550.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 		txt.RenderText(shader, op2, 600.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
@@ -850,6 +852,8 @@ void display_sub(GLFWwindow* window) {
 	}
 }
 void display_multiply(GLFWwindow* window) {
+	glfwSwapInterval(250); 
+
 	Shader shader("Shaders/glyph.vs", "Shaders/glyph.fs");
 	glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(SCR_WIDTH), 0.0f, static_cast<float>(SCR_HEIGHT));
 	shader.use();
@@ -857,8 +861,6 @@ void display_multiply(GLFWwindow* window) {
 
 	// FreeType
 	TextRenderer txt("Fonts/Antonio-Bold.ttf");
-
-	glfwSwapInterval(250);
 
 	map<int, string> randAnswers;
 	int eqns[10], random;
@@ -916,6 +918,8 @@ void display_multiply(GLFWwindow* window) {
 			randAnswers[2] = answer1;
 			randAnswers[3] = answer;
 		}
+		cout << "The answer is in position " << key << endl;
+
 
 		txt.RenderText(shader, op1, 480.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 		txt.RenderText(shader, "x", 550.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
@@ -930,6 +934,8 @@ void display_multiply(GLFWwindow* window) {
 	}
 }
 void display_division(GLFWwindow* window) {
+	glfwSwapInterval(250);
+
 	Shader shader("Shaders/glyph.vs", "Shaders/glyph.fs");
 	glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(SCR_WIDTH), 0.0f, static_cast<float>(SCR_HEIGHT));
 	shader.use();
@@ -937,8 +943,6 @@ void display_division(GLFWwindow* window) {
 
 	// FreeType
 	TextRenderer txt("Fonts/Antonio-Bold.ttf");
-
-	glfwSwapInterval(250);
 
 	map<int, string> randAnswers;
 	int eqns[10], random;
@@ -996,6 +1000,8 @@ void display_division(GLFWwindow* window) {
 			randAnswers[2] = answer1;
 			randAnswers[3] = answer;
 		}
+
+		cout << "The answer is in position " << key << endl;
 
 		txt.RenderText(shader, op1, 480.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 		txt.RenderText(shader, "/", 550.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
