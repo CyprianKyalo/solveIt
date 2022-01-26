@@ -797,7 +797,7 @@ void display_sub(GLFWwindow* window) {
 		q += op1;
 		q += "-";
 		q += op2;
-		cout << eqns[i] << " - " << eqns[i + 1] << " is " << ans << endl;
+		// cout << eqns[i] << " - " << eqns[i + 1] << " is " << ans << endl;
 
 		answer += to_string(ans);
 		answer1 += to_string(ans + 22);
@@ -877,7 +877,7 @@ void display_multiply(GLFWwindow* window) {
 		q += op1;
 		q += "x";
 		q += op2;
-		cout << eqns[i] << " x " << eqns[i + 1] << " is " << ans << endl;
+		// cout << eqns[i] << " x " << eqns[i + 1] << " is " << ans << endl;
 
 		answer += to_string(ans);
 		answer1 += to_string(ans + 22);
@@ -957,7 +957,7 @@ void display_division(GLFWwindow* window) {
 		q += op1;
 		q += "/";
 		q += op2;
-		cout << eqns[i] << " / " << eqns[i + 1] << " is " << ans << endl;
+		// cout << eqns[i] << " / " << eqns[i + 1] << " is " << ans << endl;
 
 		answer += to_string(ans);
 		answer1 += to_string(ans + 22);
