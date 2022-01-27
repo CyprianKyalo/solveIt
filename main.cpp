@@ -747,7 +747,7 @@ void display(GLFWwindow* window) {
 			}
 		}
 		cout << "The answer is in position " << key <<endl;
-
+		
 		txt.RenderText(shader, op1, 480.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 		txt.RenderText(shader, "+", 550.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 		txt.RenderText(shader, op2, 600.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
@@ -756,7 +756,9 @@ void display(GLFWwindow* window) {
 		txt.RenderText(shader, randAnswers[1], 400.0f, 500.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 		txt.RenderText(shader, randAnswers[2], 700.0f, 200.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 		txt.RenderText(shader, randAnswers[3], 700.0f, 500.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		
 		break;
+		
 	}
 }
 
