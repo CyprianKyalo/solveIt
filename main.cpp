@@ -1,9 +1,12 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
+
 
 #include "textrenderer.h"
 #include "equation.h"
 #include "addition.h"
+#include <irrKlang.h>
 
 #include <stdlib.h>
 #include <time.h>
@@ -22,6 +25,13 @@
 #include <cstdio>
 
 using namespace std;
+#include <windows.h>
+
+
+using namespace irrklang;
+
+const unsigned int SCR_WIDTH = 800;
+const unsigned int SCR_HEIGHT = 600;
 
 int j = 0;
 int key = 0;
@@ -37,6 +47,11 @@ const unsigned int SCR_HEIGHT = 800;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
+//void welcomeScreen(GLFWwindow* window);
+void characterCallback(GLFWwindow* window, unsigned int keycode);
+void CharacterModCallback(GLFWwindow* window, unsigned keycode, int modifierkey);
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+void userInput(GLFWwindow* window, int modifierkey);
 
 static void cursorPositionCallback(GLFWwindow* window, double xPos, double yPos);
 //void mouse_button_callback(GLFWwindow* window, int button, int action);
@@ -111,6 +126,7 @@ int main()
 		return -1;
 	}
 	glfwMakeContextCurrent(window);
+	//welcomeScreen(window);
 
 	// When user resizes the screen
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
@@ -145,10 +161,9 @@ int main()
 	// FreeType
 	TextRenderer txt("Fonts/Antonio-Bold.ttf");
 
-	/*Addition d;
-	cout << "This is opernd 1 " << d.A << endl;
-	cout << "This is opernd 2 " << d.B << endl;
-	cout << "The sum is " << d.sum() << endl;*/
+	//Irrklang audio 
+	//irrklang::ISoundEngine* SoundEngine = createIrrKlangDevice();
+	
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -202,9 +217,21 @@ int main()
 			break;
 		}
 
+		txt.RenderText(shader, "Welcome to SolveIt ", 200.0f, 500.0f, 1.0f, glm::vec3(0.5, 0.8f, 0.2f));
+		txt.RenderText(shader, "Please Input username", 300.0f, 400.0f, 0.5f, glm::vec3(0.3, 0.7f, 0.9f));
+		txt.RenderText(shader, "Press X to start game", 600.0f, 10.0f, 0.5f, glm::vec3(0.3, 0.7f, 0.9f));
+		glfwSetCharCallback(window, characterCallback);
+
+		SoundEngine->play2D("Game files/audio/breakout.mp3", true);
+	
+		
+		glfwSetKeyCallback(window, key_callback);
+
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
+	
+	//userInput(window, 1);
 	glfwTerminate();
 	return 0;
 
@@ -1322,3 +1349,8 @@ void display_division(GLFWwindow* window) {
 		break;
 	}
 }
+
+
+
+
+
