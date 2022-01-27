@@ -40,7 +40,7 @@ void processInput(GLFWwindow* window);
 static void cursorPositionCallback(GLFWwindow* window, double xPos, double yPos);
 //void mouse_button_callback(GLFWwindow* window, int button, int action);
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
-void display(GLFWwindow* window);
+void display_add(GLFWwindow* window);
 
 void window_refresh_callback(GLFWwindow* window);
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
@@ -171,10 +171,16 @@ int main()
 			glfwSetWindowShouldClose(window, true);
 			break;
 		case 1:
-			txt.RenderText(shader, "Welcome to solveIt", 250.0f, 700.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+			txt.RenderText(shader, "Welcome to SolveIt ", 150.0f, 500.0f, 1.0f, glm::vec3(0.5, 0.8f, 0.2f));
+			txt.RenderText(shader, "121660 Alex Kariuki", 250.0f, 400.0f, 0.5f, glm::vec3(0.3, 0.7f, 0.9f));
+			txt.RenderText(shader, "121457 Cyprian Kyalo", 250.0f, 350.0f, 0.5f, glm::vec3(0.3, 0.7f, 0.9f));
+			txt.RenderText(shader, "120357 BettyRose Waithera ", 250.0f, 300.0f, 0.5f, glm::vec3(0.3, 0.7f, 0.9f));
+			txt.RenderText(shader, "121289 WHitney Atonya", 250.0f, 250.0f, 0.5f, glm::vec3(0.3, 0.7f, 0.9f));
+			txt.RenderText(shader, "Press Enter to Continue", 530.0f, 10.0f, 0.4f, glm::vec3(1.0, 1.0f, 1.0f));
+			//glfwSetCharCallback(window, characterCallback);
 			break;
 		case 2:
-			display(window);
+			display_add(window);
 			break;
 		case 3:
 			display_sub(window);
@@ -187,7 +193,7 @@ int main()
 			break;
 		case 6:
 			sc += to_string(score_value);
-			//txt.RenderText(shader, "Your score is ", 500.0f, 700.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+			txt.RenderText(shader, "Your score is ", 500.0f, 700.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 			txt.RenderText(shader, sc, 700.0f, 700.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 			break;
 
@@ -356,7 +362,7 @@ void addition_quiz(GLFWwindow* window)
 				}
 				if (j == 2) break;
 				{
-					Beep(2000, 100);Beep(1500, 100);Beep(2000, 100);Beep(1500, 100);Beep(2000, 700);Beep(0, 400);
+					Beep(2000, 100); Beep(1500, 100); Beep(2000, 100); Beep(1500, 100); Beep(2000, 700); Beep(0, 400);
 				}
 				if (i == 5)
 					break;
@@ -376,6 +382,9 @@ void addition_quiz(GLFWwindow* window)
 		}
 		break;
 	}
+
+	//return op1;
+
 
 	//return op1;
 
@@ -459,7 +468,7 @@ void subtraction_quiz()
 				}
 				if (j == 2) break;
 				{
-					Beep(2000, 100);Beep(1500, 100);Beep(2000, 100);Beep(1500, 100);Beep(2000, 700);Beep(0, 400);
+					Beep(2000, 100); Beep(1500, 100); Beep(2000, 100); Beep(1500, 100); Beep(2000, 700); Beep(0, 400);
 				}
 				if (i == 5)
 				{
@@ -544,7 +553,7 @@ void multiplication_quiz()
 					}
 					if (j == 2) break;
 					{
-						Beep(2000, 100);Beep(1500, 100);Beep(2000, 100);Beep(1500, 100);Beep(2000, 700);Beep(0, 400);
+						Beep(2000, 100); Beep(1500, 100); Beep(2000, 100); Beep(1500, 100); Beep(2000, 700); Beep(0, 400);
 					}
 					if (i == 5)
 					{
@@ -630,7 +639,7 @@ void division_quiz()
 				}
 				if (j == 2) break;
 				{
-					Beep(2000, 100);Beep(1500, 100);Beep(2000, 100);Beep(1500, 100);Beep(2000, 700);Beep(0, 400);
+					Beep(2000, 100); Beep(1500, 100); Beep(2000, 100); Beep(1500, 100); Beep(2000, 700); Beep(0, 400);
 				}
 				if (i == 5)
 					break;
@@ -656,6 +665,300 @@ void division_quiz()
 	txt.RenderText(shader, "+", 130.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 	txt.RenderText(shader, p2, 150.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 }
+
+//else if (glfwGetKey(window, GLFW_KEY_T) == GLFW_PRESS) {
+//	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+//	display(window);
+//	//glfwSwapBuffers(window);
+//}
+//}
+
+
+static void cursorPositionCallback(GLFWwindow* window, double xPos, double yPos)
+{
+	std::cout << "Cursor t " << xPos << " : " << yPos << std::endl;
+
+}
+
+
+void window_refresh_callback(GLFWwindow* window)
+{
+	//addition_quiz(window);
+
+	/*display(window);
+	glfwSwapBuffers(window);*/
+}
+
+void display_add(GLFWwindow* window) {
+	glfwSwapInterval(250);
+
+	Shader shader("Shaders/glyph.vs", "Shaders/glyph.fs");
+	glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(SCR_WIDTH), 0.0f, static_cast<float>(SCR_HEIGHT));
+	shader.use();
+	glUniformMatrix4fv(glGetUniformLocation(shader.ID, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+
+	// FreeType
+	TextRenderer txt("Fonts/Antonio-Bold.ttf");
+
+	map<int, string> randAnswers;
+	int eqns[10], random;
+	string q, v, answer1, answer2, answer, answer3;
+	string op1, op2 = "";
+	Equation eqn;
+
+	txt.RenderText(shader, "Level 1 : Addition Quiz", 400.0f, 700.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+
+	eqn.generate_rand_nums(eqns);
+	for (unsigned int i = 0; i < 3; i += 2)
+	{
+		int ans = eqns[i] + eqns[i + 1];
+		op1 = to_string(eqns[i]);
+		op2 = to_string(eqns[i + 1]);
+		q += op1;
+		q += "+";
+		q += op2;
+		//cout << eqns[i] << " + " << eqns[i + 1] << " is " << ans << endl;
+
+		answer += to_string(ans);
+		answer1 += to_string(ans + 22);
+		answer2 += to_string(ans + 34);
+		answer3 += to_string(ans + 12);
+
+		// This piece of code randomizes the answers
+		srand(time(0));
+		random = rand() % 4;
+		if (random == 0)
+		{
+			randAnswers[0] = answer;
+			randAnswers[1] = answer2;
+			randAnswers[2] = answer1;
+			randAnswers[3] = answer3;
+
+		}
+		else if (random == 1)
+		{
+			randAnswers[0] = answer2;
+			randAnswers[1] = answer;
+			randAnswers[2] = answer3;
+			randAnswers[3] = answer1;
+		}
+		else if (random == 2)
+		{
+			randAnswers[0] = answer2;
+			randAnswers[1] = answer3;
+			randAnswers[2] = answer;
+			randAnswers[3] = answer1;
+		}
+		else if (random == 3)
+		{
+			randAnswers[0] = answer2;
+			randAnswers[1] = answer3;
+			randAnswers[2] = answer1;
+			randAnswers[3] = answer;
+		}
+
+		for (auto& i : randAnswers) {
+			if (i.second == answer) {
+				key = i.first;
+				break; // to stop searching
+			}
+		}
+		cout << "The answer is in position " << key << endl;
+
+		txt.RenderText(shader, op1, 480.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		txt.RenderText(shader, "+", 550.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		txt.RenderText(shader, op2, 600.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+
+		txt.RenderText(shader, randAnswers[0], 400.0f, 200.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		txt.RenderText(shader, randAnswers[1], 400.0f, 500.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		txt.RenderText(shader, randAnswers[2], 700.0f, 200.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		txt.RenderText(shader, randAnswers[3], 700.0f, 500.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		break;
+	}
+}
+
+void display_sub(GLFWwindow* window) {
+	glfwSwapInterval(250);
+
+	Shader shader("Shaders/glyph.vs", "Shaders/glyph.fs");
+	glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(SCR_WIDTH), 0.0f, static_cast<float>(SCR_HEIGHT));
+	shader.use();
+	glUniformMatrix4fv(glGetUniformLocation(shader.ID, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+
+	// FreeType
+	TextRenderer txt("Fonts/Antonio-Bold.ttf");
+
+	map<int, string> randAnswers;
+	int eqns[10], random;
+	string q, v, answer1, answer2, answer, answer3;
+	string op1, op2 = "";
+	Equation eqn;
+
+	txt.RenderText(shader, "Level 2 : Subtrction Quiz", 400.0f, 700.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+
+	eqn.generate_rand_nums(eqns);
+	for (unsigned int i = 0; i < 3; i += 2)
+	{
+		int ans = eqns[i] - eqns[i + 1];
+		op1 = to_string(eqns[i]);
+		op2 = to_string(eqns[i + 1]);
+		q += op1;
+		q += "-";
+		q += op2;
+		// cout << eqns[i] << " - " << eqns[i + 1] << " is " << ans << endl;
+
+		answer += to_string(ans);
+		answer1 += to_string(ans + 22);
+		answer2 += to_string(ans + 34);
+		answer3 += to_string(ans + 12);
+
+		// This piece of code randomizes the answers
+		srand(time(0));
+		random = rand() % 4;
+		if (random == 0)
+		{
+			randAnswers[0] = answer;
+			randAnswers[1] = answer2;
+			randAnswers[2] = answer1;
+			randAnswers[3] = answer3;
+
+		}
+		else if (random == 1)
+		{
+			randAnswers[0] = answer2;
+			randAnswers[1] = answer;
+			randAnswers[2] = answer3;
+			randAnswers[3] = answer1;
+		}
+		else if (random == 2)
+		{
+			randAnswers[0] = answer2;
+			randAnswers[1] = answer3;
+			randAnswers[2] = answer;
+			randAnswers[3] = answer1;
+		}
+		else if (random == 3)
+		{
+			randAnswers[0] = answer2;
+			randAnswers[1] = answer3;
+			randAnswers[2] = answer1;
+			randAnswers[3] = answer;
+		}
+
+		cout << "The answer is in position " << key << endl;
+
+		txt.RenderText(shader, op1, 480.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		txt.RenderText(shader, "-", 550.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		txt.RenderText(shader, op2, 600.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+
+
+		txt.RenderText(shader, randAnswers[0], 400.0f, 200.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		txt.RenderText(shader, randAnswers[1], 400.0f, 500.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		txt.RenderText(shader, randAnswers[2], 700.0f, 200.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		txt.RenderText(shader, randAnswers[3], 700.0f, 500.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		break;
+	}
+}
+void display_multiply(GLFWwindow* window) {
+	glfwSwapInterval(250);
+
+	Shader shader("Shaders/glyph.vs", "Shaders/glyph.fs");
+	glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(SCR_WIDTH), 0.0f, static_cast<float>(SCR_HEIGHT));
+	shader.use();
+	glUniformMatrix4fv(glGetUniformLocation(shader.ID, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+
+	// FreeType
+	TextRenderer txt("Fonts/Antonio-Bold.ttf");
+
+	map<int, string> randAnswers;
+	int eqns[10], random;
+	string q, v, answer1, answer2, answer, answer3;
+	string op1, op2 = "";
+	Equation eqn;
+
+	txt.RenderText(shader, "Level 3 : Multiplication Quiz", 400.0f, 700.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+
+	eqn.generate_rand_nums(eqns);
+	for (unsigned int i = 0; i < 3; i += 2)
+	{
+		int ans = eqns[i] * eqns[i + 1];
+		op1 = to_string(eqns[i]);
+		op2 = to_string(eqns[i + 1]);
+		q += op1;
+		q += "x";
+		q += op2;
+		// cout << eqns[i] << " x " << eqns[i + 1] << " is " << ans << endl;
+
+		answer += to_string(ans);
+		answer1 += to_string(ans + 22);
+		answer2 += to_string(ans + 34);
+		answer3 += to_string(ans + 12);
+
+		// This piece of code randomizes the answers
+		srand(time(0));
+		random = rand() % 4;
+		if (random == 0)
+		{
+			randAnswers[0] = answer;
+			randAnswers[1] = answer2;
+			randAnswers[2] = answer1;
+			randAnswers[3] = answer3;
+
+		}
+		else if (random == 1)
+		{
+			randAnswers[0] = answer2;
+			randAnswers[1] = answer;
+			randAnswers[2] = answer3;
+			randAnswers[3] = answer1;
+		}
+		else if (random == 2)
+		{
+			randAnswers[0] = answer2;
+			randAnswers[1] = answer3;
+			randAnswers[2] = answer;
+			randAnswers[3] = answer1;
+		}
+		else if (random == 3)
+		{
+			randAnswers[0] = answer2;
+			randAnswers[1] = answer3;
+			randAnswers[2] = answer1;
+			randAnswers[3] = answer;
+		}
+		cout << "The answer is in position " << key << endl;
+
+
+		txt.RenderText(shader, op1, 480.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		txt.RenderText(shader, "x", 550.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		txt.RenderText(shader, op2, 600.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+
+
+		txt.RenderText(shader, randAnswers[0], 400.0f, 200.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		txt.RenderText(shader, randAnswers[1], 400.0f, 500.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		txt.RenderText(shader, randAnswers[2], 700.0f, 200.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		txt.RenderText(shader, randAnswers[3], 700.0f, 500.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+		break;
+	}
+}
+void display_division(GLFWwindow* window) {
+	glfwSwapInterval(250);
+
+	Shader shader("Shaders/glyph.vs", "Shaders/glyph.fs");
+	glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(SCR_WIDTH), 0.0f, static_cast<float>(SCR_HEIGHT));
+	shader.use();
+	glUniformMatrix4fv(glGetUniformLocation(shader.ID, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+
+	// FreeType
+	TextRenderer txt("Fonts/Antonio-Bold.ttf");
+
+	map<int, string> randAnswers;
+	int eqns[10], random;
+	string q, v, answer1, answer2, answer, answer3;
+	string op1, op2 = "";
+	Equation eqn;
+
+	txt.RenderText(shader, "Level 4 : Division Quiz", 400.0f, 700.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 
 //else if (glfwGetKey(window, GLFW_KEY_T) == GLFW_PRESS) {
 //	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
