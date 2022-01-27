@@ -152,9 +152,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\External Resources\GLAD\src\glad.c" />
+    <ClCompile Include="Addition.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Addition.h" />
+    <ClInclude Include="equation.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="textrenderer.h" />
   </ItemGroup>
