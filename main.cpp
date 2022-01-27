@@ -175,6 +175,7 @@ int main()
 		case 3:
 			display_sub(window);
 			break;
+
 		case 4:
 			sc += to_string(score_value);
 			//txt.RenderText(shader, "Your score is ", 500.0f, 700.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
