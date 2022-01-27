@@ -1,7 +1,25 @@
-﻿  main.cpp
+﻿  Addition.cpp
+C:\OpenGLRoot\solveIt\Addition.cpp(11,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\OpenGLRoot\solveIt\Addition.cpp(19,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  main.cpp
   The contents of <filesystem> are available only with C++17 or later.
 C:\OpenGLRoot\solveIt\shader.h(56,29): warning C4101: 'e': unreferenced local variable
 C:\OpenGLRoot\solveIt\equation.h(28,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 C:\OpenGLRoot\solveIt\equation.h(72,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+<<<<<<< HEAD
 C:\OpenGLRoot\solveIt\main.cpp(578,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+=======
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+C:\OpenGLRoot\External Resources\GLAD\include\glad\glad.h(32): message : see previous definition of 'APIENTRY'
+C:\OpenGLRoot\solveIt\main.cpp(308,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\OpenGLRoot\solveIt\main.cpp(411,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\OpenGLRoot\solveIt\main.cpp(508,16): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\OpenGLRoot\solveIt\main.cpp(592,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\OpenGLRoot\solveIt\main.cpp(725,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\OpenGLRoot\solveIt\main.cpp(813,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\OpenGLRoot\solveIt\main.cpp(895,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\OpenGLRoot\solveIt\main.cpp(977,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+C:\OpenGLRoot\solveIt\Addition.cpp(81): warning C4715: 'Addition::sum': not all control paths return a value
+>>>>>>> develop
   solveIt.vcxproj -> C:\OpenGLRoot\solveIt\x64\Debug\solveIt.exe
