@@ -71,6 +71,8 @@ int Addition::sum()
 			cout << "Score : " << score << endl;
 		}
 	}
+
+
 	
 	/*if (j == 2) break;
 	{
