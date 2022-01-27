@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <map>	
+#include <cmath>
 
 #include <iostream>
 #include <stdlib.h> //for system()
@@ -581,6 +582,8 @@ void multiplication_quiz()
 	txt.RenderText(shader, "+", 130.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 	txt.RenderText(shader, p2, 150.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 }
+
+
 /*LEVEL 4*/
 void division_quiz()
 {
@@ -664,6 +667,7 @@ void division_quiz()
 	txt.RenderText(shader, p1, 100.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 	txt.RenderText(shader, "+", 130.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
 	txt.RenderText(shader, p2, 150.0f, 600.0f, 1.0f, glm::vec3(0.2, 0.6f, 0.5f));
+
 }
 
 //else if (glfwGetKey(window, GLFW_KEY_T) == GLFW_PRESS) {
