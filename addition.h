@@ -5,11 +5,10 @@ private:
 
 
 public:
-	int A;
-	int B;
+	const unsigned int SCR_WIDTH = 1200;
+	const unsigned int SCR_HEIGHT = 800;
 
 	Addition();
-	int randomize();
-	int sum();
+	void display_add();
 };
 

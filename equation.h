@@ -36,7 +36,6 @@ public:
 			eqns[i] = operand1;
 		}
 
-
 		if (sign == "-")
 		{
 			if (operand1 >= operand2) {
@@ -56,7 +55,6 @@ public:
 			arr[1] = operand2;
 			arr[2] = operand1 + operand2;
 		}
-
 
 		s += to_string(arr[0]);
 		s += sign;
